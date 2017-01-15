@@ -1,0 +1,2 @@
+ex plain $data/shared/example.txt
+test html $data/html/test.html

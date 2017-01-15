@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" type="image/png" href="img/favicon.png"/>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<title>Welcome</title>
+	</head>
+	<body>
+		<div class="container">
+			<br>
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#about"><tabs>About</tabs></a></li>
+				<li class="dropdown">
+				    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Features
+				    <span class="caret"></span></a>
+				    <ul class="dropdown-menu">
+						<li><a data-toggle="tab" href="#f_pictures">File Service</a></li>
+				    	<li><a data-toggle="tab" href="#f_bash">Bash Scripting</a></li>
+						<li><a data-toggle="tab" href="#f_python">Python Scripting</a></li>
+				    </ul>
+				</li>
+				<li><a data-toggle="tab" href="#credits">Credits</a></li>
+			</ul>
+		</div>
+		<div class="container">
+			<div class="tab-content">
+				<br>
+				<div id="about" class="tab-pane fade in active">
+					<center>
+						<p>It works!</p>
+						<p>You can find out about some of this app's functionality in the <b>Features</b> tab!</p>
+						<p>For information about who created what, check the <b>Credits</b>!</p>
+					</center>
+				</div>
+				<div id="f_pictures" class="tab-pane fade">
+					<center>
+						<p>Files in the <code>$data/shared</code> can be loaded with <code>/?p=file&path=</code>, such as <a target="_blank" href="/?p=file&path=img/alley.jpg"><code>/?p=file&path=img/alley.jpg</code></a>:</p>
+						<img src="/?p=file&path=img/alley.jpg"><br><br>
+						<p>The <code>/?p=file</code> script automatically sets mime type, and its behavior can be changed in the <code>$hidden/resources/sharing.py</code> source file.</p><br>
+					</center>
+				</div>
+				<div id="f_bash" class="tab-pane fade">
+					<center>
+						<p>Backend bash-scripts such as <code>$data/scripts/hello_world.sh</code> can be executed using <a href="/?p=exec&path=hello_world.sh&args=echo35" target="_blank"><code>/?p=exec&path=hello_world.sh&args=echo35</code></a></p>
+					</center>
+				</div>
+				<div id="f_python" class="tab-pane fade">
+					<center>
+						<p>Python scripts are also supported, like the string-to-sha256sum script at <a href="/?p=exec&path=calc_sha256.py&args=helloworld" target="_blank"><code>/?p=exec&path=calc_sha256.py&args=helloworld</code></a>: </p>
+						<form action="/" method="get" target="_blank">
+							<input type="hidden" name="p" value="exec" />
+						    <input type="hidden" name="path" value="calc_sha256.py" />
+							Enter String: <input type="text" name="args" value="">
+							<input type="submit" value="Hash me!">
+						</form>
+						<br>
+						<form action="/?p=sha256" method="post" enctype="multipart/form-data" target="_blank">
+							<input type="file" accept="*/*" style="display:inline;" name="file" />
+							<input type="submit" value="Hash me!" />
+						</form>
+						<br><br>
+					</center>
+				</div>
+				<div id="credits" class="tab-pane fade">
+					<center>
+						<p>Backend + Frontend code: <a target="_blank" href="https://github.com/Echo35">@echo35</a></p>
+						<p><a target="_blank" href="/?p=file&path=music/time.mp3"><code>/?p=file&path=music/time.mp3</code></a>: <a target="_blank" href="https://www.youtube.com/watch?v=V5pcFujHNuc">Paul Webster feat Angelic Amanda - Time (Sean Tyas Remix)</a></p>
+						<p><a target="_blank" href="/?p=file&path=img/alley.jpg"><code>/?p=file&path=img/alley.jpg</code></a>: <a target="_blank" href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=49361645">NIK</a></p>
+					</center>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
