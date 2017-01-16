@@ -27,13 +27,3 @@ def getdata_file(req):
 	except:
 		pass
 	return "404"
-
-def get_img(req):
-	name = urllib2.unquote(get_arg(req, "name"))
-	set_mime(req, "jpg", name)
-	directory = "/var/www/babylon/data/shared/img/"
-	if os.path.exists(directory + name):
-		with open(directory + name, "r") as f:
-			req.set_content_length(os.stat(directory + name).st_size)
-			return f.read()
-	return "404"
