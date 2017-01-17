@@ -16,7 +16,10 @@ def getsignal_exec(req):
 					exec(f.read())
 					return script(req, args)
 			elif name[-3:] == ".sh":
-				return commands.getstatusoutput("bash " + directory + name + " " + args.replace("\"", "\\\""))[1]
+				return commands.getstatusoutput("bash " + directory + name + " \"" + escape(args) + "\"")[1]
 		except:
 			return traceback.format_exc()
 	return "404"
+
+def escape(args):
+	return args.replace("\"", "\\\"")
