@@ -2,7 +2,7 @@ from mod_python import util, apache
 import os, urllib2
 
 def getdata_file(req):
-	name = urllib2.unquote(get_arg(req, "path"))
+	name = urllib2.unquote(get_arg(req, "path")).replace("..", ".")
 	set_mime(req, name.split(".")[-1], name)
 	directory = to_path("$data/shared/")
 	size = os.stat(directory + name).st_size
